@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For Khushbu 🤍</title>
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+        background: linear-gradient(135deg, #fbc2eb, #a6c1ee);
+        font-family: 'Segoe UI', sans-serif;
+        overflow-y: auto;
+    }
+
+    /* GIFT SCREEN */
+    .gift-screen {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        color: #3a2c6b;
+        text-align: center;
+    }
+
+    .gift {
+        width: 160px;
+        height: 160px;
+        background: linear-gradient(135deg, #ff758c, #ff7eb3);
+        border-radius: 15px;
+        position: relative;
+        cursor: pointer;
+        animation: bounce 2s infinite;
+        box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+    }
+
+    .gift::before {
+        content: "";
+        position: absolute;
+        width: 30px;
+        height: 160px;
+        background: rgba(255,255,255,0.8);
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .gift::after {
+        content: "";
+        position: absolute;
+        width: 160px;
+        height: 30px;
+        background: rgba(255,255,255,0.8);
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    .gift span {
+        position: absolute;
+        bottom: -45px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    @keyframes bounce {
+        0%, 100% {transform: translateY(0);}
+        50% {transform: translateY(-10px);}
+    }
+
+    /* MAIN CONTENT */
+    .container {
+        display: none;
+        justify-content: center;
+        padding: 70px 0;
+    }
+
+    .card {
+        background: rgba(255, 255, 255, 0.25);
+        backdrop-filter: blur(12px);
+        border-radius: 20px;
+        padding: 40px;
+        width: 85%;
+        max-width: 850px;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+        animation: fadeIn 2s ease;
+    }
+
+    h2 {
+        text-align: center;
+        color: #3a2c6b;
+        margin-bottom: 25px;
+    }
+
+    p {
+        font-size: 18px;
+        line-height: 1.9;
+        color: #2f2f4f;
+        white-space: pre-line;
+    }
+
+    .sign {
+        margin-top: 30px;
+        text-align: right;
+        font-size: 20px;
+        color: #3a2c6b;
+        font-weight: bold;
+    }
+
+    /* HEARTS */
+    .heart {
+        position: fixed;
+        bottom: -20px;
+        animation: floatUp 6s linear infinite;
+        color: rgba(255,255,255,0.8);
+        font-size: 18px;
+        pointer-events: none;
+    }
+
+    @keyframes fadeIn {
+        from {opacity: 0; transform: scale(0.95);}
+        to {opacity: 1; transform: scale(1);}
+    }
+
+    @keyframes floatUp {
+        0% {transform: translateY(0); opacity: 1;}
+        100% {transform: translateY(-110vh); opacity: 0;}
+    }
+</style>
+</head>
+
+<body>
+
+<!-- GIFT BOX -->
+<div class="gift-screen" id="giftScreen">
+    <div class="gift" onclick="openGift()">
+        <span>Click here 🤍</span>
+    </div>
+</div>
+
+<!-- MESSAGE -->
+<div class="container" id="content">
+    <div class="card">
+        <h2>For You, Khushbu 🤍</h2>
+
+        <p>
+Khushbu,
+
+There is no occasion today.
+No birthday, no special date.
+Still, I felt like you deserved something special.
+
+We’ve been friends since 8th class,
+and somehow you became a part of my life quietly.
+So many memories,
+so many moments that still live inside me.
+
+Some friendships don’t need daily talks.
+They stay,
+even in silence.
+You are that kind of person for me.
+
+Lately, I’ve been missing you.
+Missing your presence.
+Missing the comfort of knowing you exist somewhere,
+being exactly the way you are.
+
+I hope you always remember this:
+You matter.
+You are valued.
+And somewhere,
+someone is always wishing good things for you.
+
+No expectations.
+No pressure.
+Just a small gift,
+from my heart to yours.
+
+Always.
+        </p>
+
+        <div class="sign">— Aditi</div>
+    </div>
+</div>
+
+<script>
+    function openGift() {
+        document.getElementById("giftScreen").style.display = "none";
+        document.getElementById("content").style.display = "flex";
+    }
+
+    function createHeart() {
+        const heart = document.createElement("div");
+        heart.className = "heart";
+        heart.innerHTML = "🤍";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.fontSize = Math.random() * 20 + 10 + "px";
+        document.body.appendChild(heart);
+        setTimeout(() => heart.remove(), 6000);
+    }
+
+    setInterval(createHeart, 400);
+</script>
+
+</body>
+</html>
+
+
